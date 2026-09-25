@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GharSeva - Home Services</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home"><span>G</span> GharSeva</a>
+  <nav>
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#providers">Providers</a>
+    <a href="#ratings">Ratings</a><a href="#customer-care">Customer Care</a>
+  </nav>
+  <div class="actions"><button class="btn ghost" id="loginBtn">Login</button><button class="btn" id="registerBtn">Register</button></div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Trusted local services at your doorstep</p>
+    <h1>Need a service?<br><span>Get help from nearby experts.</span></h1>
+    <p>Find electricians, plumbers, labour, masons, cleaners, carpenters, mechanics and more. Nearby providers are shown first.</p>
+    <div class="hero-actions"><button class="btn big" id="heroRegister">Get Started</button><button class="btn ghost big" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Explore Services</button></div>
+  </div>
+  <div class="hero-card">
+    <div class="search-card">
+      <h3>Find a service</h3>
+      <label>Category</label>
+      <select id="homeService"></select>
+      <label>Your location</label>
+      <button class="location-btn" id="locateBtn">📍 Use my current location</button>
+      <button class="btn full" id="findBtn">Find Nearby Providers</button>
+      <small id="locStatus">Location is requested only when you choose it.</small>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="section-head"><div><p class="eyebrow">What we offer</p><h2>All Services</h2></div></div>
+  <div id="serviceGrid" class="service-grid"></div>
+</section>
+
+<section id="providers" class="section alt">
+  <div class="section-head"><div><p class="eyebrow">Local professionals</p><h2>Nearby Providers</h2></div></div>
+  <div id="providerResults" class="provider-grid"><div class="empty">Choose a service and location to see providers.</div></div>
+</section>
+
+<section id="ratings" class="section">
+  <div class="section-head"><div><p class="eyebrow">Community trust</p><h2>Ratings & Reviews</h2></div></div>
+  <div class="rating-info"><div>⭐ 4.8</div><p>Customers can rate completed services and leave feedback.</p></div>
+</section>
+
+<section id="customer-care" class="section alt">
+  <div class="care"><div><p class="eyebrow">Need help?</p><h2>Customer Care</h2><p>For booking, account or service issues, contact the support team.</p></div><button onclick="window.location.href='tel:+919305137092'" class="btn" id="careBtn">Contact Support</button></div>
+</section>
+</main>
+
+<footer>
+  <div><strong>GharSeva</strong><p>Local help, right at your doorstep.</p></div>
+  <div class="social">
+    <a id="youtubeLink" target="_blank">▶ YouTube</a><a id="instagramLink" target="_blank">◎ Instagram</a>
+    <a id="xLink" target="_blank">𝕏 X</a><a id="facebookLink" target="_blank">f Facebook</a>
+  </div>
+  <p class="copyright">© 2026 GharSeva. All rights reserved.</p>
+</footer>
+
+<div class="modal hidden" id="authModal">
+  <div class="modal-box">
+    <button class="close" id="closeAuth">×</button>
+    <div class="tabs"><button class="tab active" data-mode="login">Login</button><button class="tab" data-mode="register">Register</button></div>
+    <div id="authForm"></div>
+  </div>
+</div>
+
+<div class="modal hidden" id="dashboardModal">
+  <div class="modal-box wide"><button class="close" id="closeDash">×</button><div id="dashboard"></div></div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
